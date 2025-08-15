@@ -38,7 +38,7 @@ cd movie-theatre-api
 
 ### 2. Install Composer
 ```bash
-composer insstall
+composer install
 ```
 
 ### 3. copy .env
