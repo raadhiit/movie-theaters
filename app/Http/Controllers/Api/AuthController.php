@@ -6,9 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Sanctum\PersonalAccessToken;
 
 class AuthController extends Controller
 {
@@ -27,19 +25,6 @@ class AuthController extends Controller
         return response()->json($user, 201);
     }
 
-
-    // public function login(Request $r)
-    // {
-    //     $cred = $r->validate([
-    //         'email' => 'required|email',
-    //         'password' => 'required'
-    //     ]);
-    //     if (!Auth::attempt($cred)) 
-    //         return response()->json(['message' => 'Invalid credentials'], 401
-    //     );
-    //     $token = $r->user()->createToken('api')->plainTextToken;
-    //     return response()->json(['token' => $token]);
-    // }
     public function login(Request $r)
     {
         try {
@@ -75,57 +60,4 @@ class AuthController extends Controller
         return response()->json(['message' => 'Logged out']);
     }
 
-    // public function logout(Request $request)
-    // {
-    //     try {
-    //         // Pastikan route pakai middleware auth:sanctum
-    //         $user = $request->user();
-    //         if (!$user) {
-    //             // Fallback: kalau guard tidak mengenali user, tetap coba matikan token dari header
-    //             $bearer = $request->bearerToken();
-    //             if (!$bearer) {
-    //                 return response()->json(['message' => 'Not authenticated'], 401);
-    //             }
-
-    //             $accessToken = PersonalAccessToken::findToken($bearer);
-    //             if (!$accessToken) {
-    //                 // Token sudah tidak valid/terhapus
-    //                 return response()->json(['message' => 'Already logged out'], 200);
-    //             }
-
-    //             $accessToken->delete();
-    //             return response()->json(['message' => 'Logged out'], 200);
-    //         }
-
-    //         // Cara utama: hapus token yang sedang dipakai saat ini
-    //         $token = $user->currentAccessToken();
-    //         if ($token) {
-    //             $token->delete();
-    //         } else {
-    //             // Fallback: gunakan bearer token bila currentAccessToken() null
-    //             $bearer = $request->bearerToken();
-    //             if ($bearer) {
-    //                 if ($accessToken = PersonalAccessToken::findToken($bearer)) {
-    //                     $accessToken->delete();
-    //                 }
-    //             }
-    //         }
-
-    //         // (Opsional untuk SPA berbasis cookie + session)
-    //         // $request->session()->invalidate();
-    //         // $request->session()->regenerateToken();
-
-    //         return response()->json(['message' => 'Logged out'], 200);
-    //     } catch (\Throwable $e) {
-    //         Log::error('LOGOUT_FAIL', [
-    //             'msg'  => $e->getMessage(),
-    //             'file' => $e->getFile(),
-    //             'line' => $e->getLine(),
-    //         ]);
-    //         return response()->json([
-    //             'error'   => 'logout_fail',
-    //             'message' => 'Unexpected error',
-    //         ], 500);
-    //     }
-    // }
 }

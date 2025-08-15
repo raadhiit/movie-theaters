@@ -30,13 +30,6 @@ Route::prefix('auth')->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
 
-    Route::get('me', function (Request $r) {
-        return response()->json([
-            'user_id'  => optional($r->user())->id,
-            'token_id' => optional($r->user()?->currentAccessToken())->id,
-        ]);
-    });
-
     Route::apiResource('movies', MovieController::class);
     Route::apiResource('theaters', TheaterController::class);
     Route::apiResource('auditoriums', AuditoriumController::class);
