@@ -7,6 +7,61 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# 🎬 Movie Theatre API
+
+RESTful API untuk sistem manajemen bioskop: film, teater, auditorium, kursi, jadwal tayang, pemesanan tiket, dan pembayaran.
+
+## 🚀 Fitur Utama
+- **Autentikasi** (Register, Login, Logout) menggunakan Laravel Sanctum
+- **Master Data**: Movies, Theaters, Auditoriums, Seats, Customers
+- **Scheduling**: Screenings & ketersediaan kursi
+- **Orders & Tickets**: Pemesanan, pembayaran, dan cetak tiket
+
+---
+
+## 📋 Persyaratan
+- PHP >= 8.1
+- Composer
+- MySQL/MariaDB
+- Node.js & npm/yarn (untuk frontend opsional)
+- Postman (untuk testing API)
+
+---
+
+## 🛠 Instalasi
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/username/movie-theatre-api.git
+cd movie-theatre-api
+```
+
+### 2. Install Composer
+```bash
+composer insstall
+```
+
+### 3. copy .env
+```bash
+cp .env.example .env
+```
+
+### 4. generate keey
+```bash
+php artisan key:generate
+```
+
+### 5. migrasi
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+### 6. run project
+```bash
+php artisan serve
+```
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
